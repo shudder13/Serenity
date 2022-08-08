@@ -14,12 +14,18 @@ public class HomePage extends PageObject {
     @FindBy(css = "a[title='Log In']")
     private WebElementFacade logInLink;
 
-    public void clickAccountLink(){
+    @FindBy(css="a[title='Register']")
+    private WebElementFacade registerLink;
+
+    public void clickOnAccountLink() {
         clickOn(accountLink);
     }
 
-    public void clickOnLoginLink(){
+    public void clickOnLoginLink() {
         clickOn(logInLink);
     }
 
+    public void clickOnRegisterLink() {
+        clickOn(registerLink);
+    }
 }

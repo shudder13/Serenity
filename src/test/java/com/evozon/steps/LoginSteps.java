@@ -19,7 +19,7 @@ public class LoginSteps {
 
     @Step
     public void navigateToLoginPage() {
-        homePage.clickAccountLink();
+        homePage.clickOnAccountLink();
         homePage.clickOnLoginLink();
     }
 
@@ -43,7 +43,6 @@ public class LoginSteps {
         Assert.assertEquals("Hello, " + userName + "!",
                 accountPage.getWelcomeText());
     }
-
 
     @Step
     public void doLogin(String email, String pass) {
