@@ -4,6 +4,7 @@ import com.evozon.pages.HomePage;
 import com.evozon.pages.SearchPage;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Step;
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
 public class SearchSteps {
@@ -20,5 +21,18 @@ public class SearchSteps {
         searchPage.setSearchField(productName);
 
     }
+    @Step
+    public void clickToSearchIcon() {
+        searchPage.clickSearchIcon();
+    }
+    @Step
+    public void clickToProduct() {
+        searchPage.clickProduct();
+    }
 
+    @Step
+    public void verifyKeyword(String productName) {
+//        Assert.assertEquals(productName, searchPage.getProductDescription());
+        Assert.assertTrue(productName,());
+    }
 }

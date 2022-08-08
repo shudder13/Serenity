@@ -11,15 +11,29 @@ public class SearchPage extends PageObject {
     @FindBy(id="search")
     private WebElementFacade searchButton;
 
-    @FindBy(id="search")
-    private WebElementFacade
+    @FindBy(css="button.search-button")
+    private WebElementFacade searchButtonIcon;
+    
+    @FindBy(id="product-collection-image-339")
+    private WebElementFacade clickProduct;
+
+    @FindBy(id="short-description")
+    private WebElementFacade productDescription;
 
     public void setSearchField(String value){
         typeInto(searchButton, value);
     }
 
     public void clickSearchIcon(){
-        clickOn();
+        clickOn(searchButtonIcon);
+    }
+
+    public void clickProduct(){
+        clickOn(clickProduct);
+    }
+
+    public String getProductDescription() {
+        return productDescription.getText();
     }
 }
 

@@ -24,7 +24,12 @@ public class SearchTest {
     @Test
     public void validSearchTest(){
         searchSteps.navigateToHomepage();
-        searchSteps.enterSearchWord("woman");
+        searchSteps.enterSearchWord("women");
+        searchSteps.clickToSearchIcon();
+        searchSteps.clickToProduct();
+        searchSteps.verifyKeyword("women");
+
+
 
     }
 }
