@@ -17,7 +17,8 @@ public class HomePage extends PageObject {
     @FindBy(css="a[title='Register']")
     private WebElementFacade registerLink;
 
-//    @FindBy(css = )
+    @FindBy(id="search")
+    private WebElementFacade searchButton;
 
     public void clickOnAccountLink() {
         clickOn(accountLink);
@@ -29,5 +30,9 @@ public class HomePage extends PageObject {
 
     public void clickOnRegisterLink() {
         clickOn(registerLink);
+    }
+
+    public void setSearchField(String value){
+        typeInto(searchButton, value);
     }
 }
