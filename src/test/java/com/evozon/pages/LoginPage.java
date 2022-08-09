@@ -26,4 +26,5 @@ public class LoginPage extends PageObject {
     public void clickLoginButton(){
         clickOn(loginButton);
     }
+
 }
