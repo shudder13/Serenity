@@ -29,6 +29,12 @@ public class RegisterPage extends PageObject {
     @FindBy(css="button[title='Register']")
     private WebElementFacade registerButton;
 
+    @FindBy(id="advice-validate-cpassword-confirmation")
+    private WebElementFacade differentPasswordsError;
+
+    @FindBy(id="advice-required-entry-lastname")
+    private WebElementFacade lastNameError;
+
     public void setFirstNameField(String value) {
         typeInto(firstNameField, value);
     }
@@ -55,5 +61,13 @@ public class RegisterPage extends PageObject {
 
     public void clickRegisterButton() {
         clickOn(registerButton);
+    }
+
+    public WebElementFacade getDifferentPasswordsErrorElement() {
+        return differentPasswordsError;
+    }
+
+    public WebElementFacade getLastNameError() {
+        return lastNameError;
     }
 }
