@@ -37,6 +37,11 @@ public class CheckoutTest {
 //        checkoutSteps.clickStateField();
         checkoutSteps.selectState("Alabama");
         checkoutSteps.setZipCode("42001");
+        checkoutSteps.selectCountry("Albania");
+        checkoutSteps.setTelephoneNumber("0765437890");
+        checkoutSteps.clickBillingInformationButton();
+        checkoutSteps.clickShippingInformationButton();
+        Thread.sleep(5000);
 
 
 

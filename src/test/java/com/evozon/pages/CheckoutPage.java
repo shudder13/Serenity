@@ -19,6 +19,22 @@ public class CheckoutPage extends PageObject {
     @FindBy(id="billing:postcode")
     private WebElementFacade zipField;
 
+    @FindBy(id="billing:country_id")
+    private WebElementFacade countrySelectElement;
+
+    @FindBy(id="billing:telephone")
+    private WebElementFacade telephoneField;
+
+    @FindBy(css = "#billing-buttons-container button")
+    private WebElementFacade finalBillingInformation;
+
+    @FindBy(css="#opc-shipping div.step-title a")
+    private WebElementFacade editButton;
+
+    @FindBy(css = "#opc-shipping div.step-title")
+    private WebElementFacade selectShippingInformation;
+
+
     public void setCityField(String value){
         typeInto(cityField, value);
     }
@@ -33,6 +49,27 @@ public class CheckoutPage extends PageObject {
     }
 
     public void setZipField(String value) {typeInto(zipField, value);
+    }
+
+    public void clickCountryField(){
+        clickOn(countrySelectElement);
+    }
+    public void setCountrySelect(String country){
+        Select countrySelect = new Select(countrySelectElement);
+        countrySelect.selectByVisibleText(country);
+    }
+
+    public void setTepephoneField(String value){
+        typeInto(telephoneField, value);
+    }
+
+    public void clickFinalBillingInformationButton(){
+        clickOn(finalBillingInformation);
+        waitFor(editButton);
+    }
+
+    public void clickShippingInformationButton(){
+        clickOn(selectShippingInformation);
     }
 
 }
