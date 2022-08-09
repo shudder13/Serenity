@@ -30,12 +30,12 @@ public class CheckoutSteps {
     @Step
     public void enterCityName(String cityName) {checkoutPage.setCityField(cityName);
     }
-    @Step
-    public void clickStateField() {checkoutPage.clickStateField();}
-    @Step
-    public void selectState(String state) {
-        checkoutPage.setStateSelect(state);
-    }
+//    @Step
+//    public void clickStateField() {checkoutPage.clickStateField();}
+//    @Step
+//    public void selectState(String state) {
+//        checkoutPage.setStateSelect(state);
+//    }
     @Step
     public void setZipCode(String zipCode){
         checkoutPage.setZipField(zipCode);
@@ -59,4 +59,9 @@ public class CheckoutSteps {
     public void clickShippingInformationButton(){
         checkoutPage.clickShippingInformationButton();
     }
+    @Step
+    public void clickShippingInformationButtonStep2(){
+        checkoutPage.clickShippingInformationStep2();
+    }
+
 }

@@ -13,8 +13,8 @@ public class CheckoutPage extends PageObject {
 @FindBy(id = "billing:city")
     private WebElementFacade cityField;
 
-    @FindBy(id="billing:region_id")
-    private WebElementFacade stateSelectElement;
+//    @FindBy(css="div.field.validate-select.required-entry")
+//    private WebElementFacade stateSelectElement;
 
     @FindBy(id="billing:postcode")
     private WebElementFacade zipField;
@@ -34,19 +34,21 @@ public class CheckoutPage extends PageObject {
     @FindBy(css = "#opc-shipping div.step-title")
     private WebElementFacade selectShippingInformation;
 
+    @FindBy(css = "#shipping-buttons-container .button")
+    private WebElementFacade shippingInformationButtonStep2;
 
     public void setCityField(String value){
         typeInto(cityField, value);
     }
 
-    public void clickStateField(){
-        clickOn(stateSelectElement);
-    }
+//    public void clickStateField(){
+//        clickOn(stateSelectElement);
+//    }
 
-    public void setStateSelect(String state) {
-        Select stateSelect = new Select(stateSelectElement);
-        stateSelect.selectByVisibleText(state);
-    }
+//    public void setStateSelect(String state) {
+//        Select stateSelect = new Select(stateSelectElement);
+//        stateSelect.selectByVisibleText(state);
+//    }
 
     public void setZipField(String value) {typeInto(zipField, value);
     }
@@ -70,6 +72,10 @@ public class CheckoutPage extends PageObject {
 
     public void clickShippingInformationButton(){
         clickOn(selectShippingInformation);
+    }
+
+    public void clickShippingInformationStep2(){
+        clickOn(shippingInformationButtonStep2);
     }
 
 }
