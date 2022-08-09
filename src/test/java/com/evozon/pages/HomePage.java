@@ -17,6 +17,9 @@ public class HomePage extends PageObject {
     @FindBy(css="a[title='Register']")
     private WebElementFacade registerLink;
 
+    @FindBy(css="#nav .level0.nav-6 > a")
+    private WebElementFacade vipCategory;
+
     public void clickOnAccountLink() {
         clickOn(accountLink);
     }
@@ -29,4 +32,7 @@ public class HomePage extends PageObject {
         clickOn(registerLink);
     }
 
+    public void clickOnVipCategory() {
+        clickOn(vipCategory);
+    }
 }
