@@ -17,6 +17,9 @@ public class HomePage extends PageObject {
     @FindBy(css="a[title='Register']")
     private WebElementFacade registerLink;
 
+    @FindBy(css="#nav .level0.nav-6 > a")
+    private WebElementFacade vipCategory;
+    
     @FindBy(css=".level0.nav-3")
     private WebElementFacade productCategory;
 
@@ -44,7 +47,11 @@ public class HomePage extends PageObject {
         clickOn(registerLink);
     }
 
+    public void clickOnVipCategory() {
+        clickOn(vipCategory);
+    }
     public void clickProductCategory() {clickOn(productCategory);}
+    
     public void clickJewelrySubcategory(){
         clickOn(jewelrySubcategory);
     }
@@ -54,7 +61,7 @@ public class HomePage extends PageObject {
     public void clickAddToCartButton(){
         clickOn(addToCart);
     }
+    
     public void clickCheckOutButton() {clickOn(checkoutButton);}
-
 
 }
