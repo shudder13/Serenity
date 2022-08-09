@@ -29,7 +29,5 @@ public class SearchTest {
         searchSteps.clickToProduct();
         searchSteps.verifyKeyword("women");
 
-
-
     }
 }
