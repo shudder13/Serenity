@@ -17,8 +17,6 @@ public class HomePage extends PageObject {
     @FindBy(css="a[title='Register']")
     private WebElementFacade registerLink;
 
-//    @FindBy(css = )
-
     public void clickOnAccountLink() {
         clickOn(accountLink);
     }
@@ -30,4 +28,5 @@ public class HomePage extends PageObject {
     public void clickOnRegisterLink() {
         clickOn(registerLink);
     }
+
 }

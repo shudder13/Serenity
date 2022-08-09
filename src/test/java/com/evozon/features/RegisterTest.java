@@ -1,6 +1,7 @@
 package com.evozon.features;
 
 import com.evozon.models.Customer;
+import com.evozon.pages.HomePage;
 import com.evozon.steps.RegisterSteps;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
