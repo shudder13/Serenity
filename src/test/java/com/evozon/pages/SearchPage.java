@@ -17,7 +17,7 @@ public class SearchPage extends PageObject {
     @FindBy(id="product-collection-image-339")
     private WebElementFacade clickProduct;
 
-    @FindBy(id="short-description")
+    @FindBy(css=".short-description > .std")
     private WebElementFacade productDescription;
 
     public void setSearchField(String value){

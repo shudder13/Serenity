@@ -32,7 +32,7 @@ public class SearchSteps {
 
     @Step
     public void verifyKeyword(String productName) {
-//        Assert.assertEquals(productName, searchPage.getProductDescription());
-        Assert.assertTrue(productName,());
+        Assert.assertTrue(searchPage.getProductDescription().contains(productName));
+
     }
 }
