@@ -14,14 +14,16 @@ public class Customer {
     private String fullName;
     private String email;
     private String password;
+    private String confirmPassword;
 
-    public Customer(String firstName, String middleName, String lastName, String email, String password) {
+    public Customer(String firstName, String middleName, String lastName, String email, String password, String confirmPassword) {
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
         this.fullName = firstName + " " + lastName;
         this.email = email;
         this.password = password;
+        this.confirmPassword = confirmPassword;
     }
 
     public Customer() {
@@ -34,6 +36,7 @@ public class Customer {
         this.fullName = this.firstName + " " + this.lastName;
         this.email = fakeValuesService.bothify("????????????##@gmail.com");
         this.password = faker.lorem().characters(8, 16);
+        this.confirmPassword = this.password;
     }
 
     public String getFirstName() {
@@ -82,5 +85,13 @@ public class Customer {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
+
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
     }
 }

@@ -67,7 +67,7 @@ public class RegisterSteps {
         enterLastName(customer.getLastName());
         enterEmail(customer.getEmail());
         enterPassword(customer.getPassword());
-        enterConfirmPassword(customer.getPassword());
+        enterConfirmPassword(customer.getConfirmPassword());
         clickRegister();
     }
 
@@ -77,5 +77,15 @@ public class RegisterSteps {
                 accountPage.getWelcomeText());
         Assert.assertEquals(("Welcome, " + customer.getFullName() + "!").toUpperCase(),
                 headerPage.getWelcomeMessageText().toUpperCase());
+    }
+
+    @Step
+    public void verifyDifferentPasswordsErrorIsDisplayed() {
+        Assert.assertTrue(registerPage.getDifferentPasswordsErrorElement().isDisplayed());
+    }
+
+    @Step
+    public void verifyLastNameIsARequiredField() {
+        Assert.assertTrue(registerPage.getLastNameError().isDisplayed());
     }
 }
