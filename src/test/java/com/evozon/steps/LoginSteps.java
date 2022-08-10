@@ -12,6 +12,13 @@ public class LoginSteps {
     private LoginPage loginPage;
     private AccountPage accountPage;
 
+//    private String username;
+
+//    @Step
+//    public void enter_new_user() {
+//        username(username);
+//    }
+
     @Step
     public void navigateToHomepage() {
         homePage.open();
