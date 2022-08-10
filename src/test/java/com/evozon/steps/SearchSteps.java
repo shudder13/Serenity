@@ -2,10 +2,11 @@ package com.evozon.steps;
 
 import com.evozon.pages.HomePage;
 import com.evozon.pages.SearchPage;
-import net.thucydides.core.annotations.Managed;
+import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
 import org.junit.Assert;
-import org.openqa.selenium.WebDriver;
+
+import java.util.List;
 
 public class SearchSteps {
     private HomePage homePage;
@@ -33,6 +34,15 @@ public class SearchSteps {
     @Step
     public void verifyKeyword(String productName) {
         Assert.assertTrue(searchPage.getProductDescription().contains(productName));
+    }
 
+    @Step
+    public void verifyResultsHaveProduct(String productName) {
+        List<WebElementFacade> products = searchPage.getResults();
+        for (WebElementFacade product : products) {
+            if (product.getAttribute("title").equals(productName))
+                return;
+        }
+        throw new AssertionError("Product not found");
     }
 }
