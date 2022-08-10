@@ -43,6 +43,9 @@ public class CheckoutTest {
         checkoutSteps.clickShippingInformationButton();
 //        Thread.sleep(5000);
         checkoutSteps.clickShippingInformationButtonStep2();
+        checkoutSteps.clickFlatRate();
+        checkoutSteps.clickContiuneShippingMethodButton();
+        checkoutSteps.clickContinuePaymentMethodButton();
 
 
 

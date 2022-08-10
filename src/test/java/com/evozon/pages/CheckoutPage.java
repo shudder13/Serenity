@@ -37,6 +37,15 @@ public class CheckoutPage extends PageObject {
     @FindBy(css = "#shipping-buttons-container .button")
     private WebElementFacade shippingInformationButtonStep2;
 
+    @FindBy (id = "s_method_flatrate_flatrate")
+    private WebElementFacade chooseFlatRate;
+
+    @FindBy (css = "#shipping-method-buttons-container .validation-passed")
+    private WebElementFacade shippingMethodButton;
+
+    @FindBy (css = "#payment-buttons-container .button")
+    private WebElementFacade paymentInformationButton;
+
     public void setCityField(String value){
         typeInto(cityField, value);
     }
@@ -67,7 +76,7 @@ public class CheckoutPage extends PageObject {
 
     public void clickFinalBillingInformationButton(){
         clickOn(finalBillingInformation);
-        waitFor(editButton);
+//        waitFor(editButton);
     }
 
     public void clickShippingInformationButton(){
@@ -78,4 +87,15 @@ public class CheckoutPage extends PageObject {
         clickOn(shippingInformationButtonStep2);
     }
 
+    public void clickFlatRate() {
+        clickOn(chooseFlatRate);
+    }
+
+    public void clickContinueShippingMethodButton(){
+        clickOn(shippingMethodButton);
+    }
+
+    public void clickContinuePaymentInformation(){
+        clickOn(paymentInformationButton);
+    }
 }

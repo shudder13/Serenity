@@ -63,5 +63,18 @@ public class CheckoutSteps {
     public void clickShippingInformationButtonStep2(){
         checkoutPage.clickShippingInformationStep2();
     }
+    @Step
+    public void clickFlatRate(){
+        checkoutPage.clickFlatRate();
+    }
 
+    @Step
+    public void clickContiuneShippingMethodButton(){
+        checkoutPage.clickContinueShippingMethodButton();
+    }
+
+    @Step
+    public void clickContinuePaymentMethodButton(){
+        checkoutPage.clickContinuePaymentInformation();
+    }
 }
