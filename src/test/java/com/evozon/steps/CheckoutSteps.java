@@ -27,6 +27,11 @@ public class CheckoutSteps {
     public void clickAddToCartButton() {homePage.clickAddToCartButton();}
     @Step
     public void clickCheckOutButton() {homePage.clickCheckOutButton();}
+
+    @Step
+    public void setAdress(String value){
+        checkoutPage.setAdressField(value);
+    }
     @Step
     public void enterCityName(String cityName) {checkoutPage.setCityField(cityName);
     }
@@ -63,5 +68,22 @@ public class CheckoutSteps {
     public void clickShippingInformationButtonStep2(){
         checkoutPage.clickShippingInformationStep2();
     }
+    @Step
+    public void clickFlatRate(){
+        checkoutPage.clickFlatRate();
+    }
 
+    @Step
+    public void clickContiuneShippingMethodButton(){
+        checkoutPage.clickContinueShippingMethodButton();
+    }
+
+    @Step
+    public void clickContinuePaymentMethodButton(){
+        checkoutPage.clickContinuePaymentInformation();
+    }
+    @Step
+    public void clickPlaceOrderButton() {
+        checkoutPage.clickPlaceOrder();
+    }
 }

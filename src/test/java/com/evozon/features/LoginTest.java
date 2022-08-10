@@ -30,6 +30,6 @@ public class LoginTest {
         loginSteps.enterEmail(username);
         loginSteps.enterPassword(password);
         loginSteps.clickLogin();
-        loginSteps.verifyUserIsLoggedIn("Andreea I. Gotea");
+        loginSteps.verifyUserIsLoggedIn("Andreea i. Gotea");
     }
 }
