@@ -24,7 +24,7 @@ public class CheckoutTest {
     public void validCheckoutTest() throws InterruptedException {
         loginSteps.navigateToHomepage();
         loginSteps.navigateToLoginPage();
-        loginSteps.enterEmail("gotea1@gmail.com");
+        loginSteps.enterEmail("gotea3@gmail.com");
         loginSteps.enterPassword("asdf1234");
         loginSteps.clickLogin();
         checkoutSteps.navigateToHomepage();
@@ -33,6 +33,7 @@ public class CheckoutTest {
         checkoutSteps.clickPearlStudEarrings();
         checkoutSteps.clickAddToCartButton();
         checkoutSteps.clickCheckOutButton();
+        checkoutSteps.setAdress("Str. Florilor, nr. 2");
         checkoutSteps.enterCityName("Cluj");
 //        checkoutSteps.clickStateField();
 //        checkoutSteps.selectState("Alabama");
@@ -44,8 +45,10 @@ public class CheckoutTest {
 //        Thread.sleep(5000);
         checkoutSteps.clickShippingInformationButtonStep2();
         checkoutSteps.clickFlatRate();
+//        Thread.sleep(5000000);
         checkoutSteps.clickContiuneShippingMethodButton();
         checkoutSteps.clickContinuePaymentMethodButton();
+        checkoutSteps.clickPlaceOrderButton();
 
 
 
