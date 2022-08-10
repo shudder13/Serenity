@@ -33,10 +33,14 @@ public class Customer {
         this.firstName = faker.name().firstName();
         this.middleName = "";
         this.lastName = faker.name().lastName();
-        this.fullName = this.firstName + " " + this.lastName;
+        updateFullName();
         this.email = fakeValuesService.bothify("????????????##@gmail.com");
         this.password = faker.lorem().characters(8, 16);
         this.confirmPassword = this.password;
+    }
+
+    public void updateFullName() {
+        this.fullName = this.firstName + " " + this.lastName;
     }
 
     public String getFirstName() {
@@ -45,6 +49,7 @@ public class Customer {
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
+        updateFullName();
     }
 
     public String getMiddleName() {
@@ -61,6 +66,7 @@ public class Customer {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+        updateFullName();
     }
 
     public String getFullName() {

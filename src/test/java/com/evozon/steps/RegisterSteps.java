@@ -17,6 +17,8 @@ public class RegisterSteps extends ScenarioSteps {
 
     private String firstName;
 
+    private String lastName;
+
     private String email;
 
     @Step
@@ -79,9 +81,16 @@ public class RegisterSteps extends ScenarioSteps {
     @Step
     public void registerAndLogOut(Customer customer) {
         navigateToRegisterPage();
-        // customer.setFirstName(firstName);
+        customer.setFirstName(firstName);
+        customer.setLastName(lastName);
+        customer.setEmail(email);
         completeForm(customer);
-        // verifyUserIsLoggedIn(customer);
+        verifyUserIsLoggedIn(customer);
+        logout();
+    }
+
+    @Step
+    public void logout() {
         homePage.clickOnAccountLink();
         homePage.clickOnLogoutLink();
     }
