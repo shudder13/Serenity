@@ -9,6 +9,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
+import java.io.IOException;
+
+import static net.thucydides.core.steps.stepdata.StepData.withTestDataFrom;
+
 @RunWith(SerenityRunner.class)
 public class RegisterTest {
     @Managed(uniqueSession = true)
@@ -18,13 +22,11 @@ public class RegisterTest {
     private RegisterSteps registerSteps;
 
     @Test
-    public void validRegisterTest() {
+    public void validRegisterTest() throws IOException {
         Customer customer = new Customer();
 
         registerSteps.navigateToHomepage();
-        registerSteps.navigateToRegisterPage();
-        registerSteps.completeForm(customer);
-        registerSteps.verifyUserIsLoggedIn(customer);
+        withTestDataFrom("src/test/java/com/evozon/data/register.csv").run(registerSteps).registerAndLogOut(customer);
     }
 
     @Test

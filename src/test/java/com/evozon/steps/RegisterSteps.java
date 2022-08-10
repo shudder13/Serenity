@@ -6,13 +6,18 @@ import com.evozon.pages.HeaderPage;
 import com.evozon.pages.HomePage;
 import com.evozon.pages.RegisterPage;
 import net.thucydides.core.annotations.Step;
+import net.thucydides.core.steps.ScenarioSteps;
 import org.junit.Assert;
 
-public class RegisterSteps {
+public class RegisterSteps extends ScenarioSteps {
     private HomePage homePage;
     private RegisterPage registerPage;
     private AccountPage accountPage;
     private HeaderPage headerPage;
+
+    private String firstName;
+
+    private String email;
 
     @Step
     public void navigateToHomepage() {
@@ -62,13 +67,23 @@ public class RegisterSteps {
 
     @Step
     public void completeForm(Customer customer) {
-        enterFirstName(customer.getFirstName());
+        enterFirstName(firstName);
         enterMiddleName(customer.getMiddleName());
         enterLastName(customer.getLastName());
-        enterEmail(customer.getEmail());
+        enterEmail(email);
         enterPassword(customer.getPassword());
         enterConfirmPassword(customer.getConfirmPassword());
         clickRegister();
+    }
+
+    @Step
+    public void registerAndLogOut(Customer customer) {
+        navigateToRegisterPage();
+        // customer.setFirstName(firstName);
+        completeForm(customer);
+        // verifyUserIsLoggedIn(customer);
+        homePage.clickOnAccountLink();
+        homePage.clickOnLogoutLink();
     }
 
     @Step
