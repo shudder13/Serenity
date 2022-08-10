@@ -54,7 +54,7 @@ public class CheckoutSteps {
     }
     @Step
     public void setTelephoneNumber(String value) {
-        checkoutPage.setTepephoneField(value);
+        checkoutPage.setTelephoneField(value);
     }
     @Step
     public void clickBillingInformationButton(){

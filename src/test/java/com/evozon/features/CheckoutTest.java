@@ -24,7 +24,7 @@ public class CheckoutTest {
     public void validCheckoutTest() throws InterruptedException {
         loginSteps.navigateToHomepage();
         loginSteps.navigateToLoginPage();
-        loginSteps.enterEmail("gotea3@gmail.com");
+        loginSteps.enterEmail("gotea4@gmail.com");
         loginSteps.enterPassword("asdf1234");
         loginSteps.clickLogin();
         checkoutSteps.navigateToHomepage();

@@ -5,6 +5,7 @@ import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.annotations.Step;
+import org.junit.Assert;
 import org.openqa.selenium.support.ui.Select;
 
 @DefaultUrl("http://qa2magento.dev.evozon.com/")
@@ -33,23 +34,22 @@ public class CheckoutPage extends PageObject {
 
     @FindBy(css = "#opc-shipping div.step-title a")
     private WebElementFacade editButton;
-
     @FindBy(css = "#opc-shipping div.step-title")
     private WebElementFacade selectShippingInformation;
 
-    @FindBy(css = "li[id='opc-shipping'][class*='section allow']")
+    @FindBy(css = "#co-shipping-form [title = \"Continue\"]")
     private WebElementFacade shippingInformationButtonStep2;
 
-    @FindBy(id = "s_method_flatrate_flatrate")
+    @FindBy(css = "#co-shipping-method-form [value=\"freeshipping_freeshipping\"]")
     private WebElementFacade chooseFlatRate;
 
-    @FindBy(css = "li[id='opc-shipping_method'][class*='section allow']")
+    @FindBy(css = "#shipping-method-buttons-container .button")
     private WebElementFacade shippingMethodButton;
 
     @FindBy(css = "#payment-buttons-container .button")
     private WebElementFacade paymentInformationButton;
 
-    @FindBy(css = "#review-buttons-container button")
+    @FindBy(css = "#review-buttons-container .button.btn-checkout")
     private WebElementFacade placeOrderButton;
 
     public void setAdressField(String value) {
@@ -82,7 +82,7 @@ public class CheckoutPage extends PageObject {
         countrySelect.selectByVisibleText(country);
     }
 
-    public void setTepephoneField(String value) {
+    public void setTelephoneField(String value) {
         typeInto(telephoneField, value);
     }
 
@@ -93,19 +93,20 @@ public class CheckoutPage extends PageObject {
     }
 
     public void clickShippingInformationButton() {
-        selectShippingInformation.waitUntilVisible();
+        selectShippingInformation.waitUntilClickable();
         clickOn(selectShippingInformation);
     }
 
     public void clickShippingInformationStep2() {
 //        waitABit(5000000);
-        shippingInformationButtonStep2.waitUntilPresent();
-        clickOn(shippingInformationButtonStep2);
+        shippingInformationButtonStep2.waitUntilClickable();
 //        waitFor(editButton);
+        clickOn(shippingInformationButtonStep2);
+
     }
 
     public void clickFlatRate() {
-        chooseFlatRate.waitUntilVisible();
+        chooseFlatRate.waitUntilClickable();
 //        waitABit(5000000);
         clickOn(chooseFlatRate);
     }
@@ -118,7 +119,7 @@ public class CheckoutPage extends PageObject {
     }
 
     public void clickContinuePaymentInformation() {
-        paymentInformationButton.waitUntilVisible();
+        paymentInformationButton.waitUntilClickable();
         clickOn(paymentInformationButton);
     }
 
@@ -126,6 +127,7 @@ public class CheckoutPage extends PageObject {
         placeOrderButton.waitUntilVisible();
         clickOn(placeOrderButton);
     }
+
 }
 
 
