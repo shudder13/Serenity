@@ -22,16 +22,32 @@ public class CartTest {
     private LoginSteps loginSteps;
 
     @Test
-    public void addToCartTest() throws InterruptedException {
+    public void addToCartTest() {
         loginSteps.doLogin(Constants.VALID_USER_EMAIL, Constants.VALID_USER_PASSWORD);
+        cartSteps.navigateToCart();
+        cartSteps.emptyCart();
         loginSteps.navigateToHomepage();
         cartSteps.clickOnVipCategory();
-        cartSteps.clickOnFirstProduct();
+        cartSteps.clickOnProduct(0);
         cartSteps.setQuantityTo(2);
         cartSteps.clickOnAddToCartButton();
         cartSteps.verifyNumberOfProductsInCartIsEqualTo(1);
         cartSteps.verifyQtyOfProductIsEqualTo(0, 2);
+        cartSteps.clickOnVipCategory();
+        cartSteps.clickOnProduct(2);
+        cartSteps.setQuantityTo(3);
+        cartSteps.clickOnAddToCartButton();
+        cartSteps.verifyNumberOfProductsInCartIsEqualTo(2);
+        cartSteps.verifyQtyOfProductIsEqualTo(0, 2);
+        cartSteps.verifyQtyOfProductIsEqualTo(1, 3);
+    }
 
-        Thread.sleep(10000);
+    @Test
+    public void addConfigurableProductToCartTest() {
+        loginSteps.doLogin(Constants.VALID_USER_EMAIL, Constants.VALID_USER_PASSWORD);
+        cartSteps.navigateToCart();
+        cartSteps.emptyCart();
+        loginSteps.navigateToHomepage();
+
     }
 }

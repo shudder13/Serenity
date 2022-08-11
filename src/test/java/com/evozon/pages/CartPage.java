@@ -17,6 +17,9 @@ public class CartPage extends PageObject {
     @FindBy(css="#shopping-cart-table tbody > tr")
     private List<WebElementFacade> results;
 
+    @FindBy(id="empty_cart_button")
+    private WebElementFacade emptyCartButton;
+
     public Integer getNumberOfResults() {
         return results.size();
     }
@@ -27,5 +30,10 @@ public class CartPage extends PageObject {
 
     public WebElementFacade getQtyFieldText(Integer index) {
         return results.get(index).find(By.cssSelector("input.qty"));
+    }
+
+    public void clickOnEmptyCartButton() {
+        if (emptyCartButton.isPresent())
+            clickOn(emptyCartButton);
     }
 }

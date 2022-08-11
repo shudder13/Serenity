@@ -17,18 +17,23 @@ public class CartSteps {
     private CartPage cartPage;
 
     @Step
+    public void navigateToCart() {
+        cartPage.open();
+    }
+
+    @Step
     public void clickOnVipCategory() {
         homePage.clickOnVipCategory();
     }
 
     @Step
-    public void clickOnFirstProduct() {
-        categoryPage.getResults().get(0).click();
+    public void clickOnProduct(Integer index) {
+        categoryPage.getResults().get(index).click();
     }
 
     @Step
     public void setQuantityTo(Integer newQty) {
-        productPage.setQtyField(2);
+        productPage.setQtyField(newQty);
     }
 
     @Step
@@ -38,11 +43,16 @@ public class CartSteps {
 
     @Step
     public void verifyNumberOfProductsInCartIsEqualTo(Integer number) {
-        Assert.assertEquals((Integer)1, cartPage.getNumberOfResults());
+        Assert.assertEquals(number, cartPage.getNumberOfResults());
     }
 
     @Step
     public void verifyQtyOfProductIsEqualTo(Integer index, Integer expectedQty) {
         Assert.assertEquals(expectedQty.toString(), cartPage.getQtyFieldText(index).getAttribute("value"));
+    }
+
+    @Step
+    public void emptyCart() {
+        cartPage.clickOnEmptyCartButton();
     }
 }
