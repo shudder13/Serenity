@@ -52,12 +52,6 @@ public class CheckoutSteps extends ScenarioSteps {
         checkoutPage.setCityField(cityName);
     }
 
-    //    @Step
-//    public void clickStateField() {checkoutPage.clickStateField();}
-//    @Step
-//    public void selectState(String state) {
-//        checkoutPage.setStateSelect(state);
-//    }
     @Step
     public void setZipCode(String zipCode) {
         checkoutPage.setZipField(zipCode);
@@ -79,43 +73,50 @@ public class CheckoutSteps extends ScenarioSteps {
     }
 
     @Step
-    public void clickBillingInformationButton() {
-        checkoutPage.clickFinalBillingInformationButton();
+    public void clickOnFlatRateRadioButton() {
+        checkoutPage.clickOnFlatRateRadioButton();
     }
 
     @Step
-    public void clickShippingInformationButton() {
-        checkoutPage.clickShippingInformationButton();
+    public void clickOnShippingMethodContinueButton() {
+        checkoutPage.clickOnShippingMethodContinueButton();
     }
 
     @Step
-    public void clickShippingInformationButtonStep2() {
-        checkoutPage.clickShippingInformationStep2();
+    public void clickOnPaymentMethodContinueButton() {
+        checkoutPage.clickOnPaymentInformationContinueButton();
     }
 
     @Step
-    public void clickFlatRate() {
-        checkoutPage.clickFlatRate();
-    }
-
-    @Step
-    public void clickContiuneShippingMethodButton() {
-        checkoutPage.clickContinueShippingMethodButton();
-    }
-
-    @Step
-    public void clickContinuePaymentMethodButton() {
-        checkoutPage.clickContinuePaymentInformation();
-    }
-
-    @Step
-    public void clickPlaceOrderButton() {
-        checkoutPage.clickPlaceOrder();
+    public void clickOnPlaceOrderButton() {
+        checkoutPage.clickOnPlaceOrderButton();
     }
 
     @Step
     public void setSuccessMessage(String value) {
         checkoutPage.setSuccessMessage(value);
         Assert.assertEquals("THANK YOU FOR YOUR PURCHASE!\n", checkoutPage.getSuccessMessage());
+    }
+
+    @Step
+    public void clickOnBillingInformationContinueButton() {
+        checkoutPage.clickOnBillingInformationContinueButton();
+    }
+
+    @Step
+    public void clickOnShippingInformationLink() {
+        checkoutPage.waitUntilShippingEditLinkIsVisible();
+        if (!checkoutPage.isShippingInformationSectionActive())
+            checkoutPage.clickOnShippingInformationLink();
+    }
+
+    @Step
+    public void clickOnShippingInformationContinueButton() {
+        checkoutPage.clickOnShippingInformationContinueButton();
+    }
+
+    @Step
+    public void clickOnShipToThisAddressRadioButton() {
+        checkoutPage.clickOnShipToThisAddressRadioButton();
     }
 }

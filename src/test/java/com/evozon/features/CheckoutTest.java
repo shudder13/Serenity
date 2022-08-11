@@ -2,6 +2,7 @@ package com.evozon.features;
 
 import com.evozon.steps.CheckoutSteps;
 import com.evozon.steps.LoginSteps;
+import com.evozon.utils.Constants;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
@@ -21,11 +22,11 @@ public class CheckoutTest {
     private CheckoutSteps checkoutSteps;
 
     @Test
-    public void validCheckoutTest() throws InterruptedException {
+    public void validCheckoutTest() {
         loginSteps.navigateToHomepage();
         loginSteps.navigateToLoginPage();
-        loginSteps.enterEmail("gotea5@gmail.com");
-        loginSteps.enterPassword("asdf1234");
+        loginSteps.enterEmail(Constants.VALID_USER_EMAIL);
+        loginSteps.enterPassword(Constants.VALID_USER_PASSWORD);
         loginSteps.clickLogin();
         checkoutSteps.navigateToHomepage();
         checkoutSteps.clickProductCategory();
@@ -35,22 +36,16 @@ public class CheckoutTest {
         checkoutSteps.clickCheckOutButton();
         checkoutSteps.setAdress("Str. Florilor, nr. 2");
         checkoutSteps.enterCityName("Cluj");
-//        checkoutSteps.clickStateField();
-//        checkoutSteps.selectState("Alabama");
         checkoutSteps.setZipCode("42001");
         checkoutSteps.selectCountry("Albania");
         checkoutSteps.setTelephoneNumber("0765437890");
-        checkoutSteps.clickBillingInformationButton();
-        checkoutSteps.clickShippingInformationButton();
-//        Thread.sleep(5000);
-        checkoutSteps.clickShippingInformationButtonStep2();
-        checkoutSteps.clickFlatRate();
-//        Thread.sleep(5000000);
-        checkoutSteps.clickContiuneShippingMethodButton();
-        checkoutSteps.clickContinuePaymentMethodButton();
-        checkoutSteps.clickPlaceOrderButton();
-
-
-
+        checkoutSteps.clickOnShipToThisAddressRadioButton();
+        checkoutSteps.clickOnBillingInformationContinueButton();
+        checkoutSteps.clickOnShippingInformationLink();
+        checkoutSteps.clickOnShippingInformationContinueButton();
+        checkoutSteps.clickOnFlatRateRadioButton();
+        checkoutSteps.clickOnShippingMethodContinueButton();
+        checkoutSteps.clickOnPaymentMethodContinueButton();
+        checkoutSteps.clickOnPlaceOrderButton();
     }
 }

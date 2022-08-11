@@ -4,8 +4,6 @@ import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
-import net.thucydides.core.annotations.Step;
-import org.junit.Assert;
 import org.openqa.selenium.support.ui.Select;
 
 @DefaultUrl("http://qa2magento.dev.evozon.com/")
@@ -17,9 +15,6 @@ public class CheckoutPage extends PageObject {
     @FindBy(css = "#co-billing-form [title = \"City\"]")
     private WebElementFacade cityField;
 
-//    @FindBy(css="div.field.validate-select.required-entry")
-//    private WebElementFacade stateSelectElement;
-
     @FindBy(css = "#co-billing-form [title = \"Zip/Postal Code\"]")
     private WebElementFacade zipField;
 
@@ -29,31 +24,35 @@ public class CheckoutPage extends PageObject {
     @FindBy(css = "#co-billing-form [title = \"Telephone\"]")
     private WebElementFacade telephoneField;
 
-    @FindBy(css = "#billing-buttons-container button")
-    private WebElementFacade finalBillingInformation;
-
-    @FindBy(css = "#opc-shipping div.step-title a")
-    private WebElementFacade editButton;
-    @FindBy(css = "#opc-shipping div.step-title")
-    private WebElementFacade selectShippingInformation;
-
-    @FindBy(css = "#co-shipping-form [title = \"Continue\"]")
-    private WebElementFacade shippingInformationButtonStep2;
-
-    @FindBy(css = "#co-shipping-method-form [value=\"freeshipping_freeshipping\"]")
-    private WebElementFacade chooseFlatRate;
+    @FindBy(id = "s_method_flatrate_flatrate")
+    private WebElementFacade flatRateRadioButton;
 
     @FindBy(css = "#shipping-method-buttons-container .button")
-    private WebElementFacade shippingMethodButton;
+    private WebElementFacade shippingMethodContinueButton;
 
     @FindBy(css = "#payment-buttons-container .button")
-    private WebElementFacade paymentInformationButton;
+    private WebElementFacade paymentInformationContinueButton;
 
-    @FindBy(css = "#review-buttons-container .button.btn-checkout")
+    @FindBy(css = "#review-buttons-container button")
     private WebElementFacade placeOrderButton;
 
     @FindBy(css="div.col-main .sub-title")
     private WebElementFacade successMessage;
+
+    @FindBy(css="#billing-buttons-container button[title='Continue']")
+    private WebElementFacade billingInformationContinueButton;
+
+    @FindBy(id="opc-shipping")
+    private WebElementFacade shippingInformationSection;
+
+    @FindBy(css="#opc-shipping > div > a")
+    private WebElementFacade shippingInformationEditLink;
+
+    @FindBy(css="#shipping-buttons-container button[title=Continue]")
+    private WebElementFacade shippingInformationContinueButton;
+
+    @FindBy(id="billing:use_for_shipping_yes")
+    private WebElementFacade shipToThisAddressRadioButton;
 
     public WebElementFacade getSuccessMessage() {
         return successMessage;
@@ -66,15 +65,6 @@ public class CheckoutPage extends PageObject {
     public void setCityField(String value) {
         typeInto(cityField, value);
     }
-
-//    public void clickStateField(){
-//        clickOn(stateSelectElement);
-//    }
-
-//    public void setStateSelect(String state) {
-//        Select stateSelect = new Select(stateSelectElement);
-//        stateSelect.selectByVisibleText(state);
-//    }
 
     public void setZipField(String value) {
         typeInto(zipField, value);
@@ -93,51 +83,53 @@ public class CheckoutPage extends PageObject {
         typeInto(telephoneField, value);
     }
 
-    public void clickFinalBillingInformationButton() {
-        finalBillingInformation.waitUntilVisible();
-        clickOn(finalBillingInformation);
-//        waitFor(editButton);
+    public void clickOnFlatRateRadioButton() {
+        // flatRateRadioButton.waitUntilVisible();
+        flatRateRadioButton.select();
     }
 
-    public void clickShippingInformationButton() {
-        selectShippingInformation.waitUntilClickable();
-        clickOn(selectShippingInformation);
-    }
-
-    public void clickShippingInformationStep2() {
-//        waitABit(5000000);
-        shippingInformationButtonStep2.waitUntilClickable();
-//        waitFor(editButton);
-        clickOn(shippingInformationButtonStep2);
+    public void clickOnShippingMethodContinueButton() {
+        shippingMethodContinueButton.waitUntilClickable();
+        clickOn(shippingMethodContinueButton);
 
     }
 
-    public void clickFlatRate() {
-        chooseFlatRate.waitUntilClickable();
-//        waitABit(5000000);
-        clickOn(chooseFlatRate);
+    public void clickOnPaymentInformationContinueButton() {
+        paymentInformationContinueButton.waitUntilClickable();
+        clickOn(paymentInformationContinueButton);
     }
 
-    public void clickContinueShippingMethodButton() {
-        shippingMethodButton.waitUntilVisible();
-        shippingMethodButton.waitUntilClickable();
-        clickOn(shippingMethodButton);
-
-    }
-
-    public void clickContinuePaymentInformation() {
-        paymentInformationButton.waitUntilClickable();
-        clickOn(paymentInformationButton);
-    }
-
-    public void clickPlaceOrder() {
-        placeOrderButton.waitUntilVisible();
+    public void clickOnPlaceOrderButton() {
+        placeOrderButton.waitUntilClickable();
         clickOn(placeOrderButton);
     }
 
     public void setSuccessMessage(String value){
         typeInto(successMessage, value);
     }
+
+    public void clickOnBillingInformationContinueButton() {
+        clickOn(billingInformationContinueButton);
+    }
+
+    public void waitUntilShippingEditLinkIsVisible() {
+        shippingInformationEditLink.waitUntilVisible();
+    }
+
+    public void clickOnShippingInformationLink() {
+        shippingInformationEditLink.click();
+    }
+
+    public boolean isShippingInformationSectionActive() {
+        return shippingInformationSection.hasClass("active");
+    }
+
+    public void clickOnShippingInformationContinueButton() {
+        shippingInformationContinueButton.waitUntilClickable();
+        shippingInformationContinueButton.click();
+    }
+
+    public void clickOnShipToThisAddressRadioButton() {
+        shipToThisAddressRadioButton.click();
+    }
 }
-
-
