@@ -52,6 +52,13 @@ public class CheckoutPage extends PageObject {
     @FindBy(css = "#review-buttons-container .button.btn-checkout")
     private WebElementFacade placeOrderButton;
 
+    @FindBy(css="div.col-main .sub-title")
+    private WebElementFacade successMessage;
+
+    public WebElementFacade getSuccessMessage() {
+        return successMessage;
+    }
+
     public void setAdressField(String value) {
         typeInto(adressField, value);
     }
@@ -128,6 +135,9 @@ public class CheckoutPage extends PageObject {
         clickOn(placeOrderButton);
     }
 
+    public void setSuccessMessage(String value){
+        typeInto(successMessage, value);
+    }
 }
 
 

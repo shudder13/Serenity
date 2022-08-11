@@ -3,8 +3,10 @@ package com.evozon.steps;
 import com.evozon.pages.CheckoutPage;
 import com.evozon.pages.HomePage;
 import net.thucydides.core.annotations.Step;
+import net.thucydides.core.steps.ScenarioSteps;
+import org.junit.Assert;
 
-public class CheckoutSteps {
+public class CheckoutSteps extends ScenarioSteps {
 
     private HomePage homePage;
 
@@ -19,71 +21,101 @@ public class CheckoutSteps {
     public void clickJewelrySubcategory() {
         homePage.clickJewelrySubcategory();
     }
-    @Step
-    public void clickProductCategory() {homePage.clickProductCategory();}
-    @Step
-    public void clickPearlStudEarrings() {homePage.clickPearlStudEarrings();}
-    @Step
-    public void clickAddToCartButton() {homePage.clickAddToCartButton();}
-    @Step
-    public void clickCheckOutButton() {homePage.clickCheckOutButton();}
 
     @Step
-    public void setAdress(String value){
+    public void clickProductCategory() {
+        homePage.clickProductCategory();
+    }
+
+    @Step
+    public void clickPearlStudEarrings() {
+        homePage.clickPearlStudEarrings();
+    }
+
+    @Step
+    public void clickAddToCartButton() {
+        homePage.clickAddToCartButton();
+    }
+
+    @Step
+    public void clickCheckOutButton() {
+        homePage.clickCheckOutButton();
+    }
+
+    @Step
+    public void setAdress(String value) {
         checkoutPage.setAdressField(value);
     }
+
     @Step
-    public void enterCityName(String cityName) {checkoutPage.setCityField(cityName);
+    public void enterCityName(String cityName) {
+        checkoutPage.setCityField(cityName);
     }
-//    @Step
+
+    //    @Step
 //    public void clickStateField() {checkoutPage.clickStateField();}
 //    @Step
 //    public void selectState(String state) {
 //        checkoutPage.setStateSelect(state);
 //    }
     @Step
-    public void setZipCode(String zipCode){
+    public void setZipCode(String zipCode) {
         checkoutPage.setZipField(zipCode);
     }
+
     @Step
-    public void clickCountryField() {checkoutPage.clickCountryField();}
+    public void clickCountryField() {
+        checkoutPage.clickCountryField();
+    }
 
     @Step
     public void selectCountry(String country) {
         checkoutPage.setCountrySelect(country);
     }
+
     @Step
     public void setTelephoneNumber(String value) {
         checkoutPage.setTelephoneField(value);
     }
+
     @Step
-    public void clickBillingInformationButton(){
+    public void clickBillingInformationButton() {
         checkoutPage.clickFinalBillingInformationButton();
     }
+
     @Step
-    public void clickShippingInformationButton(){
+    public void clickShippingInformationButton() {
         checkoutPage.clickShippingInformationButton();
     }
+
     @Step
-    public void clickShippingInformationButtonStep2(){
+    public void clickShippingInformationButtonStep2() {
         checkoutPage.clickShippingInformationStep2();
     }
+
     @Step
-    public void clickFlatRate(){
+    public void clickFlatRate() {
         checkoutPage.clickFlatRate();
     }
 
     @Step
-    public void clickContiuneShippingMethodButton(){
+    public void clickContiuneShippingMethodButton() {
         checkoutPage.clickContinueShippingMethodButton();
     }
 
     @Step
-    public void clickContinuePaymentMethodButton(){
+    public void clickContinuePaymentMethodButton() {
         checkoutPage.clickContinuePaymentInformation();
     }
+
     @Step
     public void clickPlaceOrderButton() {
         checkoutPage.clickPlaceOrder();
+    }
+
+    @Step
+    public void setSuccessMessage(String value) {
+        checkoutPage.setSuccessMessage(value);
+        Assert.assertEquals("THANK YOU FOR YOUR PURCHASE!\n", checkoutPage.getSuccessMessage());
     }
 }
