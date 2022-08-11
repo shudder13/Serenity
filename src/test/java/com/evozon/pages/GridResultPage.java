@@ -10,7 +10,7 @@ public abstract class GridResultPage extends PageObject {
     @FindBy(css="ul.products-grid")
     private WebElementFacade resultList;
 
-    @FindBy(css="ul.products-grid > li.item.last > a")
+    @FindBy(css="ul.products-grid > li.item.last")
     private List<WebElementFacade> results;
 
     public Integer getNumberOfResults() {

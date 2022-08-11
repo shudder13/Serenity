@@ -8,7 +8,6 @@ import org.openqa.selenium.support.ui.Select;
 
 @DefaultUrl("http://qa2magento.dev.evozon.com/")
 public class CheckoutPage extends PageObject {
-
     @FindBy(css = "#co-billing-form [title = \"Street Address\"]")
     private WebElementFacade adressField;
 

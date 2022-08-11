@@ -43,11 +43,18 @@ public class CartTest {
     }
 
     @Test
-    public void addConfigurableProductToCartTest() {
+    public void addConfigurableProductToCartTest() throws InterruptedException {
         loginSteps.doLogin(Constants.VALID_USER_EMAIL, Constants.VALID_USER_PASSWORD);
         cartSteps.navigateToCart();
         cartSteps.emptyCart();
         loginSteps.navigateToHomepage();
-
+        cartSteps.clickOnWomenNewArrivalsSubcategory();
+        cartSteps.clickOnProduct(1);
+        cartSteps.clickOnProductColor(1);
+        cartSteps.clickOnProductSize(1);
+        cartSteps.setQuantityTo(3);
+        cartSteps.clickOnAddToCartButton();
+        cartSteps.verifyNumberOfProductsInCartIsEqualTo(1);
+        cartSteps.verifyQtyOfProductIsEqualTo(0, 3);
     }
 }

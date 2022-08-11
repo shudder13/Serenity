@@ -4,6 +4,7 @@ import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
+import org.openqa.selenium.interactions.Actions;
 
 @DefaultUrl("http://qa2magento.dev.evozon.com/")
 public class HomePage extends PageObject {
@@ -19,6 +20,12 @@ public class HomePage extends PageObject {
 
     @FindBy(css="a[title='Register']")
     private WebElementFacade registerLink;
+
+    @FindBy(css="#nav .level0.nav-1 > a")
+    private WebElementFacade womenCategory;
+
+    @FindBy(css="#nav .level1.nav-1-1 > a")
+    private WebElementFacade womenNewArrivalsSubcategory;
 
     @FindBy(css="#nav .level0.nav-6 > a")
     private WebElementFacade vipCategory;
@@ -71,4 +78,12 @@ public class HomePage extends PageObject {
     
     public void clickCheckOutButton() {clickOn(checkoutButton);}
 
+    public void hoverWomenCategory() {
+        withAction().moveToElement(element(womenCategory)).build().perform();
+    }
+
+    public void clickOnWomenNewArrivalsSubcategory() {
+        hoverWomenCategory();
+        clickOn(womenNewArrivalsSubcategory);
+    }
 }

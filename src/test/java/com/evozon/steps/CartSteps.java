@@ -55,4 +55,18 @@ public class CartSteps {
     public void emptyCart() {
         cartPage.clickOnEmptyCartButton();
     }
+
+    @Step
+    public void clickOnWomenNewArrivalsSubcategory() throws InterruptedException {
+        homePage.clickOnWomenNewArrivalsSubcategory();
+        Thread.sleep(10000);
+    }
+
+    public void clickOnProductColor(Integer index) {
+        productPage.selectColor(index);
+    }
+
+    public void clickOnProductSize(Integer index) {
+        productPage.selectSize(index);
+    }
 }
