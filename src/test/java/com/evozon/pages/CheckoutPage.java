@@ -53,6 +53,9 @@ public class CheckoutPage extends PageObject {
     @FindBy(id="billing:use_for_shipping_yes")
     private WebElementFacade shipToThisAddressRadioButton;
 
+    @FindBy(css="success-msg")
+    private WebElementFacade succesAddToCardMessage;
+
     public WebElementFacade getSuccessMessage() {
         return successMessage;
     }
@@ -130,5 +133,9 @@ public class CheckoutPage extends PageObject {
 
     public void clickOnShipToThisAddressRadioButton() {
         shipToThisAddressRadioButton.click();
+    }
+
+    public void setSuccessAddToCardMessage(String value){
+        typeInto(setSuccessAddToCardMessage(value);
     }
 }
