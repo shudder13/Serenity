@@ -35,6 +35,8 @@ public class CheckoutSteps extends ScenarioSteps {
     @Step
     public void clickAddToCartButton() {
         homePage.clickAddToCartButton();
+        Assert.assertEquals("Pearl Stud Earrings was added to your shopping cart.\n", checkoutPage.getSuccessMessage());
+
     }
 
     @Step
