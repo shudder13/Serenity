@@ -57,9 +57,8 @@ public class CartSteps {
     }
 
     @Step
-    public void clickOnWomenNewArrivalsSubcategory() throws InterruptedException {
+    public void clickOnWomenNewArrivalsSubcategory() {
         homePage.clickOnWomenNewArrivalsSubcategory();
-        Thread.sleep(10000);
     }
 
     public void clickOnProductColor(Integer index) {
