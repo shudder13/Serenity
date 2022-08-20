@@ -10,10 +10,6 @@ import java.util.List;
 
 @DefaultUrl("http://qa2magento.dev.evozon.com/checkout/cart/")
 public class CartPage extends PageObject {
-    @FindBy(id="shopping-cart-table")
-    private WebElementFacade shoppingCartTable;
-
-
     @FindBy(css="#shopping-cart-table tbody > tr")
     private List<WebElementFacade> results;
 
@@ -22,10 +18,6 @@ public class CartPage extends PageObject {
 
     public Integer getNumberOfResults() {
         return results.size();
-    }
-
-    public List<WebElementFacade> getResults() {
-        return results;
     }
 
     public WebElementFacade getQtyFieldText(Integer index) {

@@ -43,7 +43,7 @@ public class CartTest {
     }
 
     @Test
-    public void addConfigurableProductToCartTest() throws InterruptedException {
+    public void addConfigurableProductToCartTest() {
         loginSteps.doLogin(Constants.VALID_USER_EMAIL, Constants.VALID_USER_PASSWORD);
         cartSteps.navigateToCart();
         cartSteps.emptyCart();

@@ -5,7 +5,6 @@ import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 
 public class LoginPage extends PageObject {
-
     @FindBy(id = "email")
     private WebElementFacade emailField;
 
@@ -26,5 +25,4 @@ public class LoginPage extends PageObject {
     public void clickLoginButton(){
         clickOn(loginButton);
     }
-
 }

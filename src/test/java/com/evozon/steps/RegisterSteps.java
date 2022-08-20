@@ -16,9 +16,7 @@ public class RegisterSteps extends ScenarioSteps {
     private HeaderPage headerPage;
 
     private String firstName;
-
     private String lastName;
-
     private String email;
 
     @Step
